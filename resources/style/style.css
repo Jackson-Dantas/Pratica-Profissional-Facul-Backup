@@ -13,7 +13,7 @@ body{
 /* ------------------Nav Bar ------------------------ */
 
 header, .navbar{
-    background-color: rgba(236, 192, 194, 0.473);
+    background-color: rgb(236, 192, 194);
 }
 
 #nav-container{
@@ -23,7 +23,7 @@ header, .navbar{
 }
 
 #logo{
-    width: 75px;
+    width: 55px;
 }
 
 .logo-text{
@@ -46,6 +46,10 @@ header, .navbar{
 .nav-link:hover{
     background: white;
 }
+
+/* .nav-item.active {
+    border-bottom: 3px solid #FFF;
+  } */
 
 /* -------------------- MAIN SECTION ----------------------------- */ 
 
@@ -70,4 +74,49 @@ header, .navbar{
 
 #about-list li{
     line-height: 30px;
+}
+
+.img-home{
+    border-radius: 6px;
+    box-shadow: 0 0 10px burlywood;
+}
+
+/*-----------------FOOTER------------------*/
+
+#copy-area{
+    background-color: rgba(236, 192, 194, 0.486);
+}
+
+#copy-area .footer{
+    background-color: darkgray;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    height: 35px;
+}
+
+#copy-area .footer p{
+    margin-bottom: 0;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/*---------Responsive-----------------*/
+
+@media(max-width: 768px){
+    /*Geral*/
+    .container{
+        padding: 35px 0;
+    }
+
+    #about-area img{
+       
+    }
+
+    #copy-area .footer p{
+        margin-bottom: 0;
+        font-size: 9px;
+        font-weight: bold;
+    }
 }
