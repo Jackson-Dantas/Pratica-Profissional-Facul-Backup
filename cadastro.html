@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link active" href="./index.html"  id="home-menu">Home</a>
-                        <a class="nav-item nav-link active" href="./cadastro.html"  id="cadastrar-menu">Cadastrar-se</a>
+                        <a class="nav-item nav-link active" href="./login.html"  id="login-menu">Login</a>
                     </div>
                 </div>
             </nav>
@@ -53,8 +53,16 @@
                             <img class="img-fluid" src="./resources/logo/Octagono School/default_transparent_765x625.png" alt="Logo Octagono">
                         </div>
                         <div class="col-md-6 form-container">
-                            <h3 class="about-title text-primary text-center">Faça seu Login <i class="fa-solid fa-user-shield" style="color: #4d59fff5;"></i> </h3>
-                            <form action="./mainHome.html">
+                            <h3 class="about-title text-primary text-center">Faça Seu Cadastro <i class="fa-solid fa-user-shield" style="color: #4d59fff5;"></i> </h3>
+                            <form action="./login.html">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control input-login nome" id="floatingInput" placeholder="Nome">
+                                    <label for="floatingInput">Nome Completo</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control input-login cargo" id="floatingInput" placeholder="Cargo">
+                                    <label for="floatingInput">Cargo</label>
+                                </div>
                                 <div class="form-floating">
                                     <input type="email" class="form-control input-login email" id="floatingInput" placeholder="email@example.com">
                                     <label for="floatingInput">E-mail</label>
@@ -63,11 +71,12 @@
                                     <input type="password" class="form-control input-login senha" id="floatingInput" placeholder="password">
                                     <label for="floatingInput">Senha</label>
                                 </div>
-                                <div class="form-check text-start my-3">
-                                    <input type="checkbox" class="form-check-input" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">Manter-me conectado</label>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control input-login confirmaSenha" id="floatingInput" placeholder="password">
+                                    <label for="floatingInput">Confirme a senha</label>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100 fs-5 fw-bold">Entrar</button>  
+                                
+                                <button type="submit" id="btnCadastrar" class="btn btn-primary w-100 fs-5 fw-bold">Cadastrar-se</button>  
                             </form>
                         </div>
                     </div>
@@ -85,7 +94,46 @@
     </div>
    </footer>
     
-<script src="./resources/scripts/loginScript.js"></script>
+ <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    var formCadastro = document.querySelector("form");
+
+    
+    formCadastro.addEventListener("submit", function(event) {
+       
+        var nome = document.querySelector(".nome").value.trim();
+        var cargo = document.querySelector(".cargo").value.trim();
+        var email = document.querySelector(".email").value.trim();
+        var senha = document.querySelector(".senha").value.trim();
+        var confirmarSenha = document.querySelector(".confirmaSenha").value.trim();
+
+        // Verificando se todos os campos estão preenchidos
+        if (nome === "" || cargo === "" || email === "" || senha === "" || confirmarSenha === "") {
+            alert("Por favor, preencha todos os campos do cadastro.");
+            event.preventDefault(); // Impedindo o envio do formulário
+            return; 
+        }
+
+        // Verificando se as senhas coincidem
+        if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem. Por favor, verifique.");
+            event.preventDefault(); // Impedindo o envio do formulário
+            return; 
+        }
+
+       
+        alert("Cadastro efetuado com sucesso!");
+        window.location.href = "./login.html";
+    });
+
+    
+});
+
+
+
+ </script>
 
 </body>
 </html>
